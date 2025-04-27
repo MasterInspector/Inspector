@@ -1,52 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Instructions</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collapsible Panel</title>
+<style>
     body {
+	  //border: 1px solid #444;
       background-color: #000;
       color: #969696;
       font-family: Arial, sans-serif;
       padding: 5px;
-      max-width: 800px;
+      max-width: 840px;
       margin: auto;
+	  margin-top: 10px;
       font-size: 18px;
     }
-    h2 {
-      font-size: 40px;
-      color: #bfbfbf;
-    }
-    section {
-      margin-bottom: 20px;
-    }
-    details {
+  .panel-item {
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-bottom: 10px;
+	margin-left: 20px;
+	//margin-right: 20px;
+	align: ceter;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+  .panel-item.open {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .panel-title {
+    font-size: 28px;
+    cursor: pointer;
+    padding: 16px;
+    font-weight: bold;
+    position: relative;
+	padding-left: 30px;
+  }
+  .panel-title::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    transition: transform 0.3s;
+  }
+  .panel-item.open .panel-title::after {
+    transform: rotate(45deg);
+  }
+  .panel-text {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 16px;
       background-color: #111;
-      border: 1px solid #444;
-      border-radius: 6px;
-      padding: 10px 15px;
-      margin-top: 10px;
-    }
-    summary {
-      font-size: 28px;
-      font-weight: bold;
-      color: #bfbfbf;
-      cursor: pointer;
-      padding-left: 30px;
-      list-style: none;
-    }
-    summary::-webkit-details-marker {
-      display: none;
-    }
-    p {
-      margin: 10px 0;
-      padding-left: 70px;
-    }
-    strong {
-      color: #4da6ff;
+    transition: max-height 0.4s ease, padding 0.8s ease;
+  }
+  .panel-item.open .panel-text {
+    max-height: 500px;
+    padding: 16px;
+  }
+  
+      p {
+        margin: 10px 0;
+        padding-left: 40px;
+    }	
+      strong {
+        color: #4f8282;
     }
 	
-	/* Scrollbar styling for WebKit browsers (Chrome, Edge, Safari) */
+	  h2 {
+    font-size: 40px;
+    padding: 20px;
+    font-weight: bold;
+    position: relative;
+	color: #000;
+		  
+	background-color: #242b2b;
+    border: 1px solid #262626;
+    border-radius: 8px;
+    //margin-bottom: 10px;
+    overflow: hidden;
+	
+	//width: 100%;
+	//align: center;
+
+  }
+  
+  
+  	/* Scrollbar styling for WebKit browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -70,57 +111,82 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #444 #111;
 }
-	
-  </style>
+  
+  
+</style>
 </head>
 <body>
-  <h2>Instructions</h2>
-  <h2 style="font-size: 20px; position: relative; top: -25px;">_________________________________________</h2>
 
-  <section>
-    <details open>
-      <summary>Loading Images</summary>
-      <p>● <strong>Drag and drop</strong> one or multiple images into <strong>Image Group 1</strong> or <strong>Image Group 2</strong>.</p>
-      <p>● You can load one or both groups.</p>
+<h2>Instructions</h2>
+
+<div class="panel-item">
+  <div class="panel-title">Loading Images</div>
+  <div class="panel-text">
+  <p>● <strong>Drag and drop</strong> one or multiple images into <strong>Image Group 1</strong> and <strong>Image Group 2</strong>.</p>
       <p>● Switch between groups to <strong>compare images</strong> hitting <strong>"Tab" key</strong> .</p>
-      <p>● You can <strong>reload any set</strong> of images in any Image Group at <strong>any time</strong>, just drag the images.</p>
-    </details>
-  </section>
+      <p>● You can <strong>reload any set</strong> of images in any Image Group at <strong>any time</strong>, just drag the images.</p></div>
+</div>
 
-  <section>
-    <details>
-      <summary>Navigating Images</summary>
-      <p>● Use the ◄ and ► buttons or Arrow <strong>Left</strong> ⬅️ / Arrow <strong>Right</strong> ➡️ keys.</p>
-    </details>
-  </section>
+<div class="panel-item">
+  <div class="panel-title">Navigating Images</div>
+  <div class="panel-text">
+<p>● Use the ◄ and ► buttons or Arrow <strong>Left</strong> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 297" width="40" height="40" style="vertical-align: middle; transform: scaleX(-1); fill: #4f8282;">
+  <g transform="translate(0.01320793,-14.655723)">
+    <g transform="matrix(0.76053032,0,0,-0.76053032,183.69978,163.15496)">
+      <path d="M 0,0 -87.947,50.777 V 27.539 h -119.048 v -55.08 h 119.048 v -23.238 z" />
+    </g>
+  </g>
+</svg>
+ / Arrow <strong>Right</strong> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 297" width="40" height="40" style="vertical-align: middle; fill: #4f8282;">
+  <g transform="translate(0.01320793,-14.655723)">
+    <g transform="matrix(0.76053032,0,0,-0.76053032,183.69978,163.15496)">
+      <path d="M 0,0 -87.947,50.777 V 27.539 h -119.048 v -55.08 h 119.048 v -23.238 z" />
+    </g>
+  </g>
+</svg> keys to navigate images inside the <strong>active Group</strong></p>
+  </div>
+</div>
 
-  <section>
-    <details>
-      <summary>Switching Groups</summary>
+<div class="panel-item">
+  <div class="panel-title">Switching Groups</div>
+  <div class="panel-text">
       <p>● Press <strong>"Tab"</strong> to toggle between <strong>Group 1</strong> and <strong>Group 2</strong>.</p>
       <p>● You can select them with <strong>mouse click too</strong>.</p>
       <p>● The <strong>active Group</strong> is highlighted.</p>
-    </details>
-  </section>
+  </div>
+</div>
 
-  <section>
-    <details>
-      <summary>Zoom & Pan</summary>
+<div class="panel-item">
+  <div class="panel-title">Zoom & Pan</div>
+  <div class="panel-text">
       <p>● Use your mouse <strong>scroll wheel</strong> &nbsp;over the image to zoom in and out.</p>
       <p>● <strong>Drag the image</strong> with <strong>any mouse button</strong> to pan around.</p>
       <p>● All images will keep the <strong>same zoom and position</strong> for easy comparison.</p>	
       <p>● <strong>Zoom Factor: </strong>Use <strong>mouse wheal</strong> &nbsp;over the slider to set the level of Zoom Factor.</p>
 	  <p>● Hit <strong>"R"</strong> to <strong>reset</strong> zoom and position.</p>
-    </details>
-  </section>
+  </div>
+</div>
 
-  <section>
-    <details>
-      <summary>Moving the Control Panel</summary>
+<div class="panel-item">
+  <div class="panel-title">Moving the Control Panel</div>
+  <div class="panel-text">
       <p>● Click and drag the <strong>control panel</strong> to reposition it anywhere on screen.</p>
       <p>● Press <strong>"H"</strong> to toggle <strong>Hide / Unhide</strong> the control panel.</p>
-    </details>
-  </section>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.panel-item');
+  
+  items.forEach(item => {
+    const question = item.querySelector('.panel-title');
+    question.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
 
 </body>
 </html>
