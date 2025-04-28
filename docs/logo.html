@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INSPECTOR</title>
+<style>
+  body {
+    opacity: 0.5;
+    margin: 0;
+    background: #000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .logo {
+    background: #111;
+    padding: 20px 40px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: box-shadow 0.3s ease;
+  }
+  .logo-text {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    background: linear-gradient(to bottom, #ffffff, #cccccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    transition: text-shadow 0.3s ease;
+  }
+  .logo:hover {
+    box-shadow: 0 0 20px #1dd1d1, 0 0 40px #1dd1d1; /* Blue glow */
+  }
+  .logo:hover .logo-text {
+    text-shadow: 0 0 10px #ffffff;
+  }
+</style>
+</head>
+<body>
+
+<div class="logo">
+  <div class="logo-text">INSPECTOR</div>
+</div>
+
+</body>
+</html>
