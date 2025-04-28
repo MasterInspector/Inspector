@@ -31,10 +31,10 @@
     text-align: center;
     transition: text-shadow 0.3s ease;
   }
-  .logo:hover {
+  .logo.hovered {
     box-shadow: 0 0 20px #1dd1d1, 0 0 40px #1dd1d1; /* Blue glow */
   }
-  .logo:hover .logo-text {
+  .logo.hovered .logo-text {
     text-shadow: 0 0 10px #ffffff;
   }
 </style>
@@ -44,6 +44,29 @@
 <div class="logo">
   <div class="logo-text">INSPECTOR</div>
 </div>
+<script>
 
+const logo = document.getElementById('logo');
+
+document.addEventListener('mousemove', (event) => {
+  const x = event.clientX;
+  const y = event.clientY;
+
+  // Define the region where hover happens
+  const region = {
+    left: 300,   // x1
+    right: 600,  // x2
+    top: 200,    // y1
+    bottom: 400  // y2
+  };
+
+  if (x >= region.left && x <= region.right && y >= region.top && y <= region.bottom) {
+    logo.classList.add('hovered');
+  } else {
+    logo.classList.remove('hovered');
+  }
+});
+
+</script>
 </body>
 </html>
